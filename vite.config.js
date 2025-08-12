@@ -23,6 +23,10 @@ const optimizedDeps = {
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: process.env.NODE_ENV === 'production'
+  ? '/library-deployment/'
+  : '/',
+  
   plugins: [
     vue(),
     vueDevTools(),
@@ -36,8 +40,3 @@ export default defineConfig({
   optimizeDeps: optimizedDeps
 })
 
-module.exports = {
-  publicPath: process.env.NODE_ENV === 'production'
-    ? '/library-deployment/'  // 替换为你的 GitHub 仓库名
-    : '/'
-}
