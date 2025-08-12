@@ -35,3 +35,9 @@ export default defineConfig({
   // 添加优化的依赖配置
   optimizeDeps: optimizedDeps
 })
+
+module.exports = {
+  publicPath: process.env.NODE_ENV === 'production'
+    ? '/library-deployment/'  // 替换为你的 GitHub 仓库名
+    : '/'
+}
